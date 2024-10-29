@@ -1,0 +1,8 @@
+{
+    "autoload": {
+      "classmap": ["src"]
+    },
+    "require": {
+        "twbs/bootstrap": "^5.3"
+    }
+}
