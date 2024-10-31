@@ -1,3 +1,18 @@
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  $username = htmlspecialchars($_POST["username"]);
+  $password = htmlspecialchars($_POST["password"]);
+
+  if (SessionController::userLogIn($username, $password)) {
+    redirect("/admin");
+  }
+
+}
+
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="../assets/js/color-modes.js"></script>
@@ -174,16 +189,16 @@ body {
 
     
 <main class="form-signin w-100 m-auto">
-  <form>
+  <form method="post">
     <!-- <img class="mb-4" src="assets/twbs/bootstrap/dist/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
+      <input type="username" class="form-control" id="floatingInput" placeholder="Username" name="username">
+      <label for="floatingInput">Username</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
       <label for="floatingPassword">Password</label>
     </div>
 
@@ -201,3 +216,5 @@ body {
 
     </body>
 </html>
+
+

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 29-10-2024 a las 15:55:52
+-- Tiempo de generación: 31-10-2024 a las 15:29:43
 -- Versión del servidor: 8.0.39-0ubuntu0.22.04.1
 -- Versión de PHP: 8.1.2-1ubuntu2.19
 
@@ -32,8 +32,16 @@ CREATE TABLE `User` (
   `username` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `token` text NOT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `User`
+--
+
+INSERT INTO `User` (`id`, `username`, `email`, `password`, `token`, `created_at`) VALUES
+(1, 'rusben', 'rusben@elpuig.xeill.net', '$2y$10$aDrd9uFrnJgyDBwoTtUqZOl0v/t8jWNP4D2.nzauiwDldKUAPAZxe', '', '2024-10-29 15:48:50');
 
 --
 -- Índices para tablas volcadas
@@ -55,7 +63,7 @@ ALTER TABLE `User`
 -- AUTO_INCREMENT de la tabla `User`
 --
 ALTER TABLE `User`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
